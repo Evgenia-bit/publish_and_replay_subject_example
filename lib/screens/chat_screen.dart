@@ -33,24 +33,6 @@ class _ChatScreenState extends State<ChatScreen> {
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Чат')),
-      body: SafeArea(
-        child: ListView.builder(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          controller: _scrollController,
-          itemCount: _messages.length,
-          itemBuilder: (_, index) => _MessageWidget(message: _messages[index]),
-        ),
-      ),
-      floatingActionButton: SendMessageButton(
-        onPressed: () => widget.chatService.sendMessage(MessageUtil.message),
-      ),
-    );
-  }
-
   /// Метод-слушатель потока. Срабатывает каждый раз, когда в поток поступает сообщение.
   void _listenChatStream(String message) {
     setState(() {
@@ -67,6 +49,24 @@ class _ChatScreenState extends State<ChatScreen> {
         duration: const Duration(milliseconds: 300),
       );
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Чат')),
+      body: SafeArea(
+        child: ListView.builder(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          controller: _scrollController,
+          itemCount: _messages.length,
+          itemBuilder: (_, index) => _MessageWidget(message: _messages[index]),
+        ),
+      ),
+      floatingActionButton: SendMessageButton(
+        onPressed: () => widget.chatService.sendMessage(MessageUtil.message),
+      ),
+    );
   }
 }
 
