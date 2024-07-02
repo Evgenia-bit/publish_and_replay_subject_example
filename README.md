@@ -1,3 +1,3 @@
-# publish_and_replay_subject_example
+# Publish And Replay Subject Example
 
-A new Flutter project.
+The example of a chat using PublishSubject and ReplaySubject.

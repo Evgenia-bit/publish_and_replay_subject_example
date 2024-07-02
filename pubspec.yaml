@@ -1,5 +1,5 @@
 name: publish_and_replay_subject_example
-description: "A new Flutter project."
+description: "The example of a chat using PublishSubject and ReplaySubject."
 publish_to: 'none'
 version: 0.1.0
 
